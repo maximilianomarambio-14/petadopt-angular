@@ -46,8 +46,8 @@
                         <option value="">Seleccione</option>
                         <option>Perro</option>
                         <option>Gato</option>
-                        <option>Ave</option>
                         <option>Conejo</option>
+                        <option>Ave</option>
 
                     </select>
 
@@ -87,6 +87,30 @@
 
     </div>
 
+    <!-- BUSCADOR -->
+
+    <div class="card shadow mt-4">
+
+        <div class="card-body">
+
+            <label class="form-label fw-bold">
+
+                🔍 Buscar mascota
+
+            </label>
+
+            <input
+                type="text"
+                class="form-control"
+                placeholder="Buscar por nombre, tipo o estado..."
+                [(ngModel)]="buscar">
+
+        </div>
+
+    </div>
+
+    <!-- TABLA -->
+
     <div class="card shadow mt-4">
 
         <div class="card-header bg-dark text-white">
@@ -115,7 +139,7 @@
 
                 <tbody>
 
-                    <tr *ngFor="let mascota of mascotas">
+                    <tr *ngFor="let mascota of mascotasFiltradas">
 
                         <td>{{ mascota.nombre }}</td>
                         <td>{{ mascota.edad }}</td>

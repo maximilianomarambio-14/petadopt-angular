@@ -21,6 +21,8 @@ export class MascotasComponent {
   tipo = '';
   estado = '';
 
+  buscar = '';
+
   mascotas: any[] = [];
 
   ngOnInit(): void {
@@ -28,14 +30,12 @@ export class MascotasComponent {
     const datos = localStorage.getItem('mascotas');
 
     if (datos) {
-
       this.mascotas = JSON.parse(datos);
-
     }
 
   }
 
-  guardarMascota() {
+  guardarMascota(): void {
 
     if (
       this.nombre.trim() === '' ||
@@ -43,23 +43,16 @@ export class MascotasComponent {
       this.tipo === '' ||
       this.estado === ''
     ) {
-
       alert('Complete todos los campos.');
-
       return;
-
     }
 
     const mascota = {
 
       id: Date.now(),
-
       nombre: this.nombre,
-
       edad: this.edad,
-
       tipo: this.tipo,
-
       estado: this.estado
 
     };
@@ -78,7 +71,13 @@ export class MascotasComponent {
 
   }
 
-  eliminar(id:number){
+  eliminar(id: number): void {
+
+    const confirmar = confirm(
+      '¿Está seguro que desea eliminar esta mascota?'
+    );
+
+    if (!confirmar) return;
 
     this.mascotas = this.mascotas.filter(
       mascota => mascota.id !== id
@@ -87,6 +86,26 @@ export class MascotasComponent {
     localStorage.setItem(
       'mascotas',
       JSON.stringify(this.mascotas)
+    );
+
+  }
+
+  get mascotasFiltradas() {
+
+    if (!this.buscar.trim()) {
+      return this.mascotas;
+    }
+
+    const texto = this.buscar.toLowerCase();
+
+    return this.mascotas.filter(mascota =>
+
+      mascota.nombre.toLowerCase().includes(texto) ||
+
+      mascota.tipo.toLowerCase().includes(texto) ||
+
+      mascota.estado.toLowerCase().includes(texto)
+
     );
 
   }

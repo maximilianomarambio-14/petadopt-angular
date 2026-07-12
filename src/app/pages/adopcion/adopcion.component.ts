@@ -22,7 +22,6 @@ export class AdopcionComponent {
   motivo = '';
 
   solicitudes: any[] = [];
-
   mascotas: any[] = [];
 
   ngOnInit(): void {
@@ -41,7 +40,7 @@ export class AdopcionComponent {
 
   }
 
-  guardarSolicitud() {
+  guardarSolicitud(): void {
 
     if (
       this.nombre.trim() === '' ||
@@ -51,7 +50,6 @@ export class AdopcionComponent {
     ) {
 
       alert('Complete todos los campos.');
-
       return;
 
     }
@@ -86,7 +84,15 @@ export class AdopcionComponent {
 
   }
 
-  eliminar(id:number){
+  eliminar(id: number): void {
+
+    const confirmar = confirm(
+      '¿Está seguro que desea eliminar esta solicitud?'
+    );
+
+    if (!confirmar) {
+      return;
+    }
 
     this.solicitudes = this.solicitudes.filter(
       solicitud => solicitud.id !== id
