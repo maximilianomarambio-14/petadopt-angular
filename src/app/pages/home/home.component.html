@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+
+    <h1 class="text-center mb-5">
+        🐾 Sistema de Adopción de Mascotas
+    </h1>
+
+    <div class="row g-4">
+
+        <div class="col-md-3">
+
+            <div class="card shadow text-center">
+
+                <div class="card-body">
+
+                    <h5>Mascotas</h5>
+
+                    <h2>{{ totalMascotas }}</h2>
+
+                    <a
+                        routerLink="/mascotas"
+                        class="btn btn-primary mt-3">
+
+                        Administrar
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card shadow text-center">
+
+                <div class="card-body">
+
+                    <h5>Disponibles</h5>
+
+                    <h2>{{ disponibles }}</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card shadow text-center">
+
+                <div class="card-body">
+
+                    <h5>Adoptadas</h5>
+
+                    <h2>{{ adoptadas }}</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card shadow text-center">
+
+                <div class="card-body">
+
+                    <h5>Solicitudes</h5>
+
+                    <h2>{{ solicitudes }}</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

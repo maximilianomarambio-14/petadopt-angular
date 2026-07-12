@@ -1,0 +1,30 @@
+.container{
+
+    max-width:900px;
+
+}
+
+.card{
+
+    border:none;
+    border-radius:15px;
+
+}
+
+.card-header{
+
+    font-weight:bold;
+
+}
+
+.list-group-item{
+
+    font-size:17px;
+
+}
+
+.alert{
+
+    border-radius:10px;
+
+}

@@ -1,0 +1,43 @@
+.container{
+
+    max-width: 1200px;
+
+}
+
+.card{
+
+    border: none;
+    border-radius: 15px;
+
+}
+
+.card-header{
+
+    font-weight: bold;
+
+}
+
+table{
+
+    vertical-align: middle;
+
+}
+
+.btn{
+
+    border-radius: 8px;
+
+}
+
+input,
+select{
+
+    border-radius: 8px;
+
+}
+
+.table tbody tr:hover{
+
+    background-color: #f8f9fa;
+
+}

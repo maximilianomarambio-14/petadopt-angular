@@ -1,0 +1,147 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+
+            <h3>🐶 Registro de Mascotas</h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-3 mb-3">
+
+                    <label class="form-label">Nombre</label>
+
+                    <input
+                        class="form-control"
+                        [(ngModel)]="nombre">
+
+                </div>
+
+                <div class="col-md-2 mb-3">
+
+                    <label class="form-label">Edad</label>
+
+                    <input
+                        type="number"
+                        class="form-control"
+                        [(ngModel)]="edad">
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+
+                    <label class="form-label">Tipo</label>
+
+                    <select
+                        class="form-select"
+                        [(ngModel)]="tipo">
+
+                        <option value="">Seleccione</option>
+                        <option>Perro</option>
+                        <option>Gato</option>
+                        <option>Ave</option>
+                        <option>Conejo</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-2 mb-3">
+
+                    <label class="form-label">Estado</label>
+
+                    <select
+                        class="form-select"
+                        [(ngModel)]="estado">
+
+                        <option value="">Seleccione</option>
+                        <option>Disponible</option>
+                        <option>Adoptado</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-2 d-flex align-items-end">
+
+                    <button
+                        class="btn btn-success w-100"
+                        (click)="guardarMascota()">
+
+                        Guardar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card shadow mt-4">
+
+        <div class="card-header bg-dark text-white">
+
+            <h4>Lista de Mascotas</h4>
+
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-hover">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Tipo</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr *ngFor="let mascota of mascotas">
+
+                        <td>{{ mascota.nombre }}</td>
+                        <td>{{ mascota.edad }}</td>
+                        <td>{{ mascota.tipo }}</td>
+                        <td>{{ mascota.estado }}</td>
+
+                        <td>
+
+                            <button
+                                class="btn btn-danger btn-sm"
+                                (click)="eliminar(mascota.id)">
+
+                                Eliminar
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
