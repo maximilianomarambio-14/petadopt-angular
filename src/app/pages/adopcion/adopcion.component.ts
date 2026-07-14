@@ -53,7 +53,26 @@ export class AdopcionComponent {
       return;
 
     }
+    // Validar largo del nombre/////////////////////////////////////////////////////////////////////////////
+if (this.nombre.trim().length < 3) {
+  alert('El nombre debe tener al menos 3 caracteres.');
+  return;
+}
 
+// Validar correo
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!emailRegex.test(this.correo)) {
+  alert('Ingrese un correo valido.');
+  return;
+}
+
+// Validar motivo
+if (this.motivo.trim().length < 10) {
+  alert('El motivo debe tener al menos 10 caracteres.');
+  return;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////
     const solicitud = {
 
       id: Date.now(),
@@ -81,13 +100,15 @@ export class AdopcionComponent {
     this.correo = '';
     this.mascota = '';
     this.motivo = '';
-
+//////////////////////////////////////////////////////////////////////
+     alert('Solicitud registrada correctamente.');
+//////////////////////////////////////////////////////////////////////
   }
 
   eliminar(id: number): void {
 
     const confirmar = confirm(
-      '¿Está seguro que desea eliminar esta solicitud?'
+      '¿Esta seguro que desea eliminar esta solicitud?'
     );
 
     if (!confirmar) {
